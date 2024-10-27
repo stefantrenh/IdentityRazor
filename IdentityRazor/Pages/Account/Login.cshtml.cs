@@ -20,9 +20,12 @@ namespace IdentityRazor.Pages.Account
             
             if (Credential.UserName == "admin" && Credential.Password == "password") 
             {
-                var claims = new List<Claim> { 
+                var claims = new List<Claim> {
                     new Claim (ClaimTypes.Name, "admin") ,
-                    new Claim (ClaimTypes.Email, "admin@website.com")
+                    new Claim (ClaimTypes.Email, "admin@website.com"),
+                    new Claim ("Department", "HR"),
+                    new Claim ("Admin", "true"),
+                    new Claim ("Manager", "true")
                 };
 
                 var identity = new ClaimsIdentity (claims, "MyCookieAuth");

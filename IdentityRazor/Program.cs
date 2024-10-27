@@ -7,6 +7,14 @@ builder.Services.AddAuthentication().AddCookie("MyCookieAuth", options =>
     options.Cookie.Name = "MyCookieAuth";
 });
 
+builder.Services.AddAuthorization(options => 
+{
+    options.AddPolicy("SysAdmin", policy => policy.RequireClaim("Admin"));
+    options.AddPolicy("MustBelongToHRDepartment", policy => policy.RequireClaim("Department", "HR"));
+    options.AddPolicy("HRManager", policy => policy.RequireClaim("Department", "HR")
+                                                   .RequireClaim("Manager"));
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,6 +30,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
