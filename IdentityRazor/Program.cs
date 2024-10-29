@@ -1,3 +1,6 @@
+using IdentityRazor.Authorization;
+using Microsoft.AspNetCore.Authorization;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,8 +15,11 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("SysAdmin", policy => policy.RequireClaim("Admin"));
     options.AddPolicy("MustBelongToHRDepartment", policy => policy.RequireClaim("Department", "HR"));
     options.AddPolicy("HRManager", policy => policy.RequireClaim("Department", "HR")
-                                                   .RequireClaim("Manager"));
+                                                   .RequireClaim("Manager")
+                                                   .Requirements.Add(new HRManagerProbationRequirement(3)));
 });
+
+builder.Services.AddSingleton<IAuthorizationHandler, HRManagerProbationRequirmentHandler>();
 
 var app = builder.Build();
 

@@ -25,7 +25,8 @@ namespace IdentityRazor.Pages.Account
                     new Claim (ClaimTypes.Email, "admin@website.com"),
                     new Claim ("Department", "HR"),
                     new Claim ("Admin", "true"),
-                    new Claim ("Manager", "true")
+                    new Claim ("Manager", "true"),
+                    new Claim ("EmploymentDate", "2024-05-05")
                 };
 
                 var identity = new ClaimsIdentity (claims, "MyCookieAuth");
