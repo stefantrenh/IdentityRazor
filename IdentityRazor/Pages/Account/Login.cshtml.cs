@@ -29,10 +29,15 @@ namespace IdentityRazor.Pages.Account
                     new Claim ("EmploymentDate", "2024-05-05")
                 };
 
+                var authProperties = new AuthenticationProperties
+                {
+                    IsPersistent = Credential.RememberMe
+                };
+
                 var identity = new ClaimsIdentity (claims, "MyCookieAuth");
                 ClaimsPrincipal principal = new ClaimsPrincipal (identity);
 
-               await HttpContext.SignInAsync("MyCookieAuth", principal);
+               await HttpContext.SignInAsync("MyCookieAuth", principal, authProperties);
 
                 return RedirectToPage("/Index");
 
