@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityRazor", "IdentityRazor\IdentityRazor.csproj", "{E6144C2C-564C-4087-8CD6-3257F2BA2AFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wheather.API", "Wheater.API\Wheather.API.csproj", "{BF2ADB4C-A412-4F42-8CD3-6E01636187D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E6144C2C-564C-4087-8CD6-3257F2BA2AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6144C2C-564C-4087-8CD6-3257F2BA2AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6144C2C-564C-4087-8CD6-3257F2BA2AFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF2ADB4C-A412-4F42-8CD3-6E01636187D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF2ADB4C-A412-4F42-8CD3-6E01636187D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF2ADB4C-A412-4F42-8CD3-6E01636187D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF2ADB4C-A412-4F42-8CD3-6E01636187D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
