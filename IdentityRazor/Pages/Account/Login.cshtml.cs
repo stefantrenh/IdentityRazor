@@ -20,6 +20,8 @@ namespace IdentityRazor.Pages.Account
             
             if (Credential.UserName == "admin" && Credential.Password == "password") 
             {
+                /*Provider*/
+
                 var claims = new List<Claim> {
                     new Claim (ClaimTypes.Name, "admin") ,
                     new Claim (ClaimTypes.Email, "admin@website.com"),
