@@ -1,4 +1,4 @@
-using IdentityRazor.IdentityRazor.Domain;
+using IdentityRazor.IdentityRazor.Application.DTOs;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,7 +9,7 @@ namespace IdentityRazor.Pages.Account
     public class LoginModel : PageModel
     {
         [BindProperty]
-        public Credential Credential { get; set; } = new Credential();
+        public CredentialDTO Credential { get; set; } = new CredentialDTO();
         public void OnGet()
         {
         }

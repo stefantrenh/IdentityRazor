@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace IdentityRazor.IdentityRazor.Domain
+namespace IdentityRazor.IdentityRazor.Application.DTOs
 {
-    public class Credential
+    public class CredentialDTO
     {
         [Required]
         [Display(Name = "User Name")]
@@ -11,7 +11,7 @@ namespace IdentityRazor.IdentityRazor.Domain
         [DataType(DataType.Password)]
         public string Password { get; set; } = string.Empty;
 
-        [Display (Name = "Remember Me")]
+        [Display(Name = "Remember Me")]
         public bool RememberMe { get; set; }
     }
 }
