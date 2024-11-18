@@ -1,0 +1,51 @@
+﻿@page
+@model IdentityRazor.WebApp.Pages.Account.AuthenticatorWithMFASetupModel
+@{
+}
+
+<h3>Please scan the QR Code or enter the key to your authenticator app:</h3>
+<p>
+    @if (Model.SetUpMFA.QRCodeBytes != null)
+    {
+        <img src="@string.Format("data:image/png;base64,{0}",
+              Convert.ToBase64String(Model.SetUpMFA.QRCodeBytes))"
+             width="300"
+             height="300" />
+    }
+</p>
+
+<p>
+    @Model.SetUpMFA.Key
+</p>
+
+<div class="container border" style="padding:20px">
+    <form method="post">
+        @if (Model.Succeeded)
+        {
+            <div class="alert alert-success">
+                The authenticator is successfully setup.
+            </div>
+        }
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <div class="mb-3 row">
+            <div class="col-2">
+                <label asp-for="SetUpMFA.SecurityCode"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="SetUpMFA.SecurityCode" class="form-control" />
+                <span class="text-danger" asp-validation-for="SetUpMFA.SecurityCode"></span>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <div class="col-2">
+                <input type="submit" class="btn btn-primary" value="Verify" />
+            </div>
+        </div>
+
+        <div class="col">
+            <input type="hidden" asp-for="SetUpMFA.Key"/>
+            <input type="hidden" asp-for="SetUpMFA.QRCodeBytes"/>
+        </div>
+    </form>
+</div>

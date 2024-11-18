@@ -31,12 +31,22 @@ namespace IdentityRazor.WebApp.Pages.Account
                                              Credential.Password,
                                              Credential.RememberMe,
                                              false);
+
             if (result.Succeeded)
             {
                 return RedirectToPage("/Index");
             }
             else
             {
+                if (result.RequiresTwoFactor)
+                {
+                    return RedirectToPage("/Account/LoginTwoFactorWithAuthenticator", 
+                        new 
+                        {
+                            this.Credential.RememberMe
+                        });
+                }
+
                 if (result.IsLockedOut)
                 {
                     ModelState.AddModelError("Login", "You are locked out.");
